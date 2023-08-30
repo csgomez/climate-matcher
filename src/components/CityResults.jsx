@@ -1,4 +1,4 @@
-const CityResults = ({ city, cityId }) => {
+const CityResults = ({ city }) => {
   if (!city.ready) return null;
 
   return (
@@ -6,7 +6,7 @@ const CityResults = ({ city, cityId }) => {
       <p>Temperature: {city.temp}</p>
       <p>
         Location: lat[<em>{city.location.lat}</em>] long[
-        <em>{city.location.long}</em>]
+        <em>{city.location.lon}</em>]
       </p>{' '}
     </div>
   );

@@ -1,16 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getCitySelectorById,
-  updateFirstCity,
-  updateSecondCity,
-} from '../reducers/citiesSlice';
+import { selectCityDataById, updateCity } from '../reducers/citiesSlice';
 import { useRef } from 'react';
 import { fetchLocation, fetchWeather } from '../services/geoweather';
 import CityResults from './CityResults';
 
 const CityComponent = ({ cityId }) => {
-  const selector = getCitySelectorById(cityId);
-  const city = useSelector(selector);
+  const city = useSelector(selectCityDataById(cityId));
   const cityNameInputRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -36,11 +31,8 @@ const CityComponent = ({ cityId }) => {
         },
         ready: true,
       };
-      if (cityId === 1) {
-        dispatch(updateFirstCity(newCityData));
-      } else if (cityId === 2) {
-        dispatch(updateSecondCity(newCityData));
-      }
+
+      dispatch(updateCity({ cityId, newCityData }));
 
       console.log(lat, lon, temperature);
     } catch (err) {
