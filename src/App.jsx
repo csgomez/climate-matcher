@@ -13,13 +13,13 @@ function App() {
   const areBothCitiesReady = useSelector(selectAreBothCitiesReady);
 
   return (
-    <>
+    <main className="App">
       <h1>City Climate Matcher</h1>
       <City cityId={1} />
       {isFirstCityReady && <City cityId={2} />}
       {areBothCitiesReady && <GameResults />}
       <History />
-    </>
+    </main>
   );
 }
 

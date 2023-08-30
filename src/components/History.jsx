@@ -7,12 +7,14 @@ const History = () => {
   const isEmpty = history.length === 0;
 
   return (
-    <div style={{ borderTop: '1px solid white', marginTop: '3rem' }}>
+    <div className="history">
       <h3>Past Plays</h3>
       {isEmpty && <p>No plays yet...</p>}
-      {history.map((result) => (
-        <HistoryItem key={result.moveNumber} result={result} />
-      ))}
+      <table>
+        {history.map((result) => (
+          <HistoryItem key={result.moveNumber} result={result} />
+        ))}
+      </table>
     </div>
   );
 };

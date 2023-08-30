@@ -2,12 +2,12 @@ const CityResults = ({ city }) => {
   if (!city.ready) return null;
 
   return (
-    <div>
-      <p>Temperature: {city.temp}</p>
-      <p>
+    <div className="city-results">
+      <p>Temperature: {city.temp}F</p>
+      {/* <p>
         Location: lat[<em>{city.location.lat}</em>] long[
         <em>{city.location.lon}</em>]
-      </p>{' '}
+      </p>{' '} */}
     </div>
   );
 };

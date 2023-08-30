@@ -10,8 +10,10 @@ const GameResults = () => {
   const difference = Math.abs(temp1 - temp2).toFixed(1);
 
   return (
-    <div>
-      <p>You were off by {difference} degrees!</p>
+    <div className="game-results">
+      <p>
+        <b>You were off by {difference} degrees!</b>
+      </p>
     </div>
   );
 };

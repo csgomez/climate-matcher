@@ -44,8 +44,8 @@ const City = ({ cityId }) => {
   };
 
   return (
-    <div>
-      <p>Choose the {cityId === 1 ? 'first' : 'second'} city</p>
+    <div className="city">
+      <h3>Choose the {cityId === 1 ? 'first' : 'second'} city</h3>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input type="text" ref={cityNameInputRef} />
