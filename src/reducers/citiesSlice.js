@@ -56,7 +56,11 @@ export const selectAreBothCitiesReady = createSelector(
   (firstCity, secondCity) => firstCity.ready && secondCity.ready
 );
 
-export const selectHistory = (state) => state.cities.history;
+// export const selectHistory = (state) => state.cities.history;
+export const selectHistory = createSelector(
+  [selectAllCities],
+  (cities) => cities.history
+);
 
 export const updateCityAndCheckReady = createAsyncThunk(
   'cities/updateCityAndCheckReady',

@@ -1,5 +1,5 @@
 import './App.css';
-import CityComponent from './components/CityComponent';
+import City from './components/City';
 import GameResults from './components/GameResults';
 import History from './components/History';
 import { useSelector } from 'react-redux';
@@ -15,8 +15,8 @@ function App() {
   return (
     <>
       <h1>City Climate Matcher</h1>
-      <CityComponent cityId={1} />
-      {isFirstCityReady && <CityComponent cityId={2} />}
+      <City cityId={1} />
+      {isFirstCityReady && <City cityId={2} />}
       {areBothCitiesReady && <GameResults />}
       <History />
     </>

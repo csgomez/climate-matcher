@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { selectHistory } from '../reducers/citiesSlice';
 
 const History = () => {
-  // const { history } = useContext(GameContext);
   const history = useSelector(selectHistory);
   const isEmpty = history.length === 0;
 
