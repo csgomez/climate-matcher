@@ -1,4 +1,8 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit';
 import { getInitialCity } from '../utils';
 
 const initialState = {
@@ -22,28 +26,23 @@ export const citiesSlice = createSlice({
       state[cityId].data = newCityData;
       state[cityId].ready = true;
     },
-    pushHistory: (state, action) => {
-      const { city1, city2, difference } = action.payload;
-      const moveNumber = state.length + 1;
+    pushHistory: (state) => {
+      const moveNumber = state.history.length + 1;
+      const firstCity = state[1].data;
+      const secondCity = state[2].data;
 
-      state.push({ moveNumber, city1, city2, difference });
+      state.history.push({ moveNumber, firstCity, secondCity });
     },
   },
 });
 
-export const { updateFirstCity, updateSecondCity, updateCity } =
+export const { updateFirstCity, updateSecondCity, updateCity, pushHistory } =
   citiesSlice.actions;
 
 export const selectAllCities = (state) => state.cities;
-export const selectFirstCity = (state) => state.cities[1];
-export const selectSecondCity = (state) => state.cities[2];
+const selectFirstCity = (state) => state.cities[1];
+const selectSecondCity = (state) => state.cities[2];
 
-export const getCitySelectorById = (id) => {
-  if (id === 1) return selectFirstCity;
-  if (id === 2) return selectSecondCity;
-};
-
-// export const selectCityDataById = (state, cityId) => state.cities[cityId].data;
 export const selectCityDataById = (cityId) =>
   createSelector([selectAllCities], (cities) => cities[cityId].data);
 
@@ -52,11 +51,24 @@ export const selectIsFirstCityReady = createSelector(
   (firstCity) => firstCity.ready
 );
 
-export const selectFirstCityStatus = (state) => state.cities[1].ready;
-
 export const selectAreBothCitiesReady = createSelector(
   [selectFirstCity, selectSecondCity],
   (firstCity, secondCity) => firstCity.ready && secondCity.ready
+);
+
+export const selectHistory = (state) => state.cities.history;
+
+export const updateCityAndCheckReady = createAsyncThunk(
+  'cities/updateCityAndCheckReady',
+  async ({ cityId, newCityData }, { getState, dispatch }) => {
+    dispatch(updateCity({ cityId, newCityData }));
+
+    const state = getState();
+
+    if (state.cities[1].ready && state.cities[2].ready) {
+      dispatch(pushHistory());
+    }
+  }
 );
 
 export default citiesSlice.reducer;

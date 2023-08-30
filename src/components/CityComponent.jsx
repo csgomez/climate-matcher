@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCityDataById, updateCity } from '../reducers/citiesSlice';
+import {
+  selectCityDataById,
+  updateCityAndCheckReady,
+} from '../reducers/citiesSlice';
 import { useRef } from 'react';
 import { fetchLocation, fetchWeather } from '../services/geoweather';
 import CityResults from './CityResults';
@@ -32,7 +35,7 @@ const CityComponent = ({ cityId }) => {
         ready: true,
       };
 
-      dispatch(updateCity({ cityId, newCityData }));
+      dispatch(updateCityAndCheckReady({ cityId, newCityData }));
 
       console.log(lat, lon, temperature);
     } catch (err) {
