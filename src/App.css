@@ -1,14 +1,22 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: 100vw;
   margin: 0 auto;
   text-align: center;
 
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
 }
 
 .App {
   max-width: 550px;
+  padding: 1rem 0;
 }
 
 .city {
@@ -36,7 +44,7 @@
 }
 
 .history {
-  border-top: 1px solid white;
+  border-top: 3px solid rgb(204, 204, 204);
   margin-top: 1rem;
 }
 
@@ -63,19 +71,19 @@ th {
 }
 
 .modal-overlay {
-  /* background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .modal-content {
-  /* width: 300px;
-  height: 200px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(31 31 31); */
   flex-direction: column;
+}
+
+header {
+  width: 100%;
+  border-bottom: 1px solid rgb(188, 188, 188);
+  padding: 0.25rem 0;
+}
+
+header h1 {
+  margin: 0;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
 }

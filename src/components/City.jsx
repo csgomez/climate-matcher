@@ -45,7 +45,11 @@ const City = ({ cityId }) => {
       <h3>Choose the {cityId === 1 ? 'first' : 'second'} city</h3>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input type="text" ref={cityNameInputRef} />
+        <input
+          type="text"
+          placeholder="Los Angeles, CA"
+          ref={cityNameInputRef}
+        />
         <button>Get Temp</button>
       </form>
       <CityResults city={city} />
