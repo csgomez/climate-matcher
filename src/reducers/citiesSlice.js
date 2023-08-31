@@ -16,6 +16,7 @@ const initialState = {
   },
   history: [],
   guesses: 0,
+  difficulty: 3.0,
 };
 
 export const citiesSlice = createSlice({
@@ -93,5 +94,7 @@ export const updateCityAndCheckReady = createAsyncThunk(
 );
 
 export const selectGuesses = (state) => state.cities.guesses;
+
+export const selectDifficulty = (state) => state.cities.difficulty;
 
 export default citiesSlice.reducer;

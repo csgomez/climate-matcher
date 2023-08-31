@@ -8,6 +8,7 @@ import {
   selectIsFirstCityReady,
 } from './reducers/citiesSlice';
 import GuessCounter from './components/Guesses';
+import GameStatus from './components/GameStatus';
 
 function App() {
   const isFirstCityReady = useSelector(selectIsFirstCityReady);
@@ -20,6 +21,7 @@ function App() {
       <City cityId={1} />
       {isFirstCityReady && <City cityId={2} />}
       {areBothCitiesReady && <GameResults />}
+      <GameStatus />
       <History />
     </main>
   );
