@@ -1,6 +1,6 @@
 # City Climate Matcher
 
-A simple "Game" where you try to find two separate cities with similar current temperatures.
+A simple "game" where you try to find two separate cities with similar current temperatures.
 
 ## Instructions
 
