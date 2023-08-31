@@ -56,3 +56,8 @@ td {
 th {
   background-color: #f2f2f2;
 }
+
+.guess-counter {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}

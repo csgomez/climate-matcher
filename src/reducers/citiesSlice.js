@@ -15,6 +15,7 @@ const initialState = {
     ready: false,
   },
   history: [],
+  guesses: 0,
 };
 
 export const citiesSlice = createSlice({
@@ -38,11 +39,19 @@ export const citiesSlice = createSlice({
 
       state.history.push({ moveNumber, firstCity, secondCity, difference });
     },
+    increaseGuessCount: (state) => {
+      state.guesses += 1;
+    },
   },
 });
 
-export const { updateFirstCity, updateSecondCity, updateCity, pushHistory } =
-  citiesSlice.actions;
+export const {
+  updateFirstCity,
+  updateSecondCity,
+  updateCity,
+  pushHistory,
+  increaseGuessCount,
+} = citiesSlice.actions;
 
 export const selectAllCities = (state) => state.cities;
 const selectFirstCity = (state) => state.cities[1];
@@ -67,6 +76,8 @@ export const selectHistory = createSelector(
   (cities) => cities.history
 );
 
+// If both cities now have their weather ready, then a formal "Guess" is made
+// and a new history item should be added
 export const updateCityAndCheckReady = createAsyncThunk(
   'cities/updateCityAndCheckReady',
   async ({ cityId, newCityData }, { getState, dispatch }) => {
@@ -76,8 +87,11 @@ export const updateCityAndCheckReady = createAsyncThunk(
 
     if (state.cities[1].ready && state.cities[2].ready) {
       dispatch(pushHistory());
+      dispatch(increaseGuessCount());
     }
   }
 );
+
+export const selectGuesses = (state) => state.cities.guesses;
 
 export default citiesSlice.reducer;
