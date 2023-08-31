@@ -31,7 +31,12 @@ export const citiesSlice = createSlice({
       const firstCity = state[1].data;
       const secondCity = state[2].data;
 
-      state.history.push({ moveNumber, firstCity, secondCity });
+      // have to go from number->string->number thanks to javascript
+      const difference = parseFloat(
+        Math.abs(firstCity.temp - secondCity.temp).toFixed(1)
+      );
+
+      state.history.push({ moveNumber, firstCity, secondCity, difference });
     },
   },
 });

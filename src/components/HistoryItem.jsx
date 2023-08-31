@@ -5,10 +5,7 @@ const HistoryItem = ({ result }) => {
   const name1 = result.firstCity.name;
   const name2 = result.secondCity.name;
 
-  const temp1 = result.firstCity.temp;
-  const temp2 = result.secondCity.temp;
-
-  const difference = Math.abs(temp2 - temp1).toFixed(1);
+  const difference = result.difference;
 
   console.log('History result: ', result);
 
@@ -17,7 +14,7 @@ const HistoryItem = ({ result }) => {
       <td>{moveNumber}</td>
       <td>{name1}</td>
       <td>{name2}</td>
-      <td>{difference}F</td>
+      <td>{difference.toFixed(1)} F</td>
     </tr>
   );
 
