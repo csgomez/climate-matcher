@@ -43,6 +43,9 @@ export const citiesSlice = createSlice({
     increaseGuessCount: (state) => {
       state.guesses += 1;
     },
+    resetGame: () => {
+      return initialState;
+    },
   },
 });
 
@@ -52,6 +55,7 @@ export const {
   updateCity,
   pushHistory,
   increaseGuessCount,
+  resetGame,
 } = citiesSlice.actions;
 
 export const selectAllCities = (state) => state.cities;
