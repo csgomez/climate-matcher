@@ -2,6 +2,8 @@
 
 A simple "game" where you try to find two separate cities with similar current temperatures.
 
+Try it out! https://csgomez.github.io/climate-matcher
+
 ## Instructions
 
 Clone the repository.
