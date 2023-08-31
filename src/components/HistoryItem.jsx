@@ -1,21 +1,28 @@
 /* eslint-disable react/prop-types */
 const HistoryItem = ({ result }) => {
-  const firstCityName = result.city1.name.split(',')[0];
-  const secondCityName = result.city2.name.split(',')[0];
+  const moveNumber = result.moveNumber;
 
-  const temp1 = parseFloat(result.city1.temp);
-  const temp2 = parseFloat(result.city2.temp);
+  const name1 = result.firstCity.name;
+  const name2 = result.secondCity.name;
 
-  const difference = Math.abs(temp2 - temp1).toFixed(1);
+  const difference = result.difference;
 
-  console.log('city1:', result.city1);
-  console.log('city2:', result.city2);
+  console.log('History result: ', result);
+
   return (
-    <div>
-      {result.moveNumber} | {firstCityName} ---- {secondCityName} ==={' '}
-      {difference}F
-    </div>
+    <tr>
+      <td>{moveNumber}</td>
+      <td>{name1}</td>
+      <td>{name2}</td>
+      <td>{difference.toFixed(1)} F</td>
+    </tr>
   );
+
+  // return (
+  //   <div style={{ border: '1px solid white' }}>
+  //     {result.moveNumber} | {name1} ---- {name2} === {difference}F
+  //   </div>
+  // );
 };
 
 export default HistoryItem;

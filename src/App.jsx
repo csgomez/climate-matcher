@@ -1,28 +1,24 @@
-import { useContext } from 'react';
 import './App.css';
 import City from './components/City';
-import { GameContext } from './contexts/GameContext';
 import GameResults from './components/GameResults';
 import History from './components/History';
-import CityComponent from './components/CityComponent';
+import { useSelector } from 'react-redux';
+import { selectAreBothCitiesReady } from './reducers/citiesSlice';
+import GuessCounter from './components/Guesses';
 
 function App() {
-  const { firstCity, setFirstCity, secondCity, setSecondCity, gameCompleted } =
-    useContext(GameContext);
+  const areBothCitiesReady = useSelector(selectAreBothCitiesReady);
 
   return (
-    <>
+    <main className="App">
       <h1>City Climate Matcher</h1>
-      <City city={firstCity} setCity={setFirstCity} />
-      <br />
-      {firstCity.ready && (
-        <City city={secondCity} setCity={setSecondCity} isSecondCity />
-      )}
-      <br />
-      {gameCompleted && <GameResults />}
-      <br />
+      <GuessCounter />
+      <City cityId={1} />
+      <City cityId={2} />
+      {/* {isFirstCityReady && <City cityId={2} />} */}
+      {areBothCitiesReady && <GameResults />}
       <History />
-    </>
+    </main>
   );
 }
 

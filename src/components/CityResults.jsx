@@ -1,13 +1,13 @@
-const CityResults = ({ city, cityId }) => {
+const CityResults = ({ city }) => {
   if (!city.ready) return null;
 
   return (
-    <div>
-      <p>Temperature: {city.temp}</p>
-      <p>
+    <div className="city-results">
+      <p>Temperature: {city.temp.toFixed(1)}F</p>
+      {/* <p>
         Location: lat[<em>{city.location.lat}</em>] long[
-        <em>{city.location.long}</em>]
-      </p>{' '}
+        <em>{city.location.lon}</em>]
+      </p>{' '} */}
     </div>
   );
 };
