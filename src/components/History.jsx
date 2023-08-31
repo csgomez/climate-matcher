@@ -11,9 +11,11 @@ const History = () => {
       <h3>Past Plays</h3>
       {isEmpty && <p>No plays yet...</p>}
       <table>
-        {history.map((result) => (
-          <HistoryItem key={result.moveNumber} result={result} />
-        ))}
+        <tbody>
+          {history.map((result) => (
+            <HistoryItem key={result.moveNumber} result={result} />
+          ))}
+        </tbody>
       </table>
     </div>
   );

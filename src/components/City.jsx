@@ -15,9 +15,6 @@ const City = ({ cityId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Current name:', cityNameInputRef.current.value);
-    console.log('city:', city);
-
     const cityName = cityNameInputRef.current.value;
     if (cityName === '' || cityName === city.name) return;
 

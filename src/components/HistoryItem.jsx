@@ -17,12 +17,6 @@ const HistoryItem = ({ result }) => {
       <td>{difference.toFixed(1)} F</td>
     </tr>
   );
-
-  // return (
-  //   <div style={{ border: '1px solid white' }}>
-  //     {result.moveNumber} | {name1} ---- {name2} === {difference}F
-  //   </div>
-  // );
 };
 
 export default HistoryItem;
