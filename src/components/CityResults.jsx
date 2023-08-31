@@ -3,7 +3,7 @@ const CityResults = ({ city }) => {
 
   return (
     <div className="city-results">
-      <p>Temperature: {city.temp}F</p>
+      <p>Temperature: {city.temp.toFixed(1)}F</p>
       {/* <p>
         Location: lat[<em>{city.location.lat}</em>] long[
         <em>{city.location.lon}</em>]
