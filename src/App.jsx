@@ -16,7 +16,8 @@ function App() {
     <main className="App">
       <h1>City Climate Matcher</h1>
       <City cityId={1} />
-      {isFirstCityReady && <City cityId={2} />}
+      <City cityId={2} />
+      {/* {isFirstCityReady && <City cityId={2} />} */}
       {areBothCitiesReady && <GameResults />}
       <History />
     </main>

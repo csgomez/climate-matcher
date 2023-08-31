@@ -5,8 +5,8 @@ const HistoryItem = ({ result }) => {
   const name1 = result.firstCity.name;
   const name2 = result.secondCity.name;
 
-  const temp1 = parseFloat(result.firstCity.temp);
-  const temp2 = parseFloat(result.secondCity.temp);
+  const temp1 = result.firstCity.temp;
+  const temp2 = result.secondCity.temp;
 
   const difference = Math.abs(temp2 - temp1).toFixed(1);
 
