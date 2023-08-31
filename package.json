@@ -2,7 +2,7 @@
   "name": "city-climate-matcher",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://csgomez.github.io/simple-react/",
+  "homepage": "https://csgomez.github.io/climate-matcher/",
   "type": "module",
   "scripts": {
     "dev": "vite",
