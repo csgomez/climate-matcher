@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectDifficulty,
+  selectCurrentDifficultyValue,
   selectHistory,
   selectGuesses,
   resetGame,
@@ -10,7 +10,7 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
 const GameStatus = () => {
-  const difficulty = useSelector(selectDifficulty);
+  const difficulty = useSelector(selectCurrentDifficultyValue);
   const guessCount = useSelector(selectGuesses);
   const guesses = useSelector(selectHistory);
   const isWinner = guesses[guesses.length - 1]?.difference <= difficulty;

@@ -5,6 +5,8 @@ import {
 } from '@reduxjs/toolkit';
 import { getInitialCity } from '../utils';
 
+const DIFFICULTY_VALUES = { easy: 7.0, medium: 3.0, hard: 1.0 };
+
 const initialState = {
   1: {
     data: getInitialCity(),
@@ -16,7 +18,10 @@ const initialState = {
   },
   history: [],
   guesses: 0,
-  difficulty: 3.0,
+  difficulty: {
+    name: 'medium',
+    value: DIFFICULTY_VALUES['medium'],
+  },
 };
 
 export const citiesSlice = createSlice({
@@ -43,6 +48,12 @@ export const citiesSlice = createSlice({
     increaseGuessCount: (state) => {
       state.guesses += 1;
     },
+    updateDifficulty: (state, action) => {
+      const name = action.payload;
+      const value = DIFFICULTY_VALUES[name];
+
+      state.difficulty = { name, value };
+    },
     resetGame: () => {
       return initialState;
     },
@@ -56,6 +67,7 @@ export const {
   pushHistory,
   increaseGuessCount,
   resetGame,
+  updateDifficulty,
 } = citiesSlice.actions;
 
 export const selectAllCities = (state) => state.cities;
@@ -99,6 +111,8 @@ export const updateCityAndCheckReady = createAsyncThunk(
 
 export const selectGuesses = (state) => state.cities.guesses;
 
-export const selectDifficulty = (state) => state.cities.difficulty;
+export const selectCurrentDifficulty = (state) => state.cities.difficulty;
+export const selectCurrentDifficultyValue = (state) =>
+  state.cities.difficulty.value;
 
 export default citiesSlice.reducer;
