@@ -22,7 +22,6 @@ const Settings = () => {
 
   const handleCloseClick = () => {
     dispatch(hideModal());
-    console.log('Close the modal, bro');
   };
 
   return (
