@@ -1,20 +1,27 @@
-import { useSelector } from 'react-redux';
-import { selectAllCities } from '../reducers/citiesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetGame, selectGameState } from '../reducers/citiesSlice';
+import { hideGameEndingModal } from '../reducers/modalSlice';
 
 const GameResults = () => {
-  const cities = useSelector(selectAllCities);
+  const dispatch = useDispatch();
 
-  const temp1 = cities[1].data.temp;
-  const temp2 = cities[2].data.temp;
+  const { isWinner } = useSelector(selectGameState);
 
-  const difference = Math.abs(temp1 - temp2).toFixed(1);
+  const handlePlayAgain = () => {
+    dispatch(resetGame());
+    dispatch(hideGameEndingModal());
+  };
 
   return (
-    <div className="game-results">
-      <p>
-        <b>You were off by {difference} degrees!</b>
-      </p>
-    </div>
+    <>
+      {isWinner ? (
+        <p>Congratulations! You found a city with a similar temperature!</p>
+      ) : (
+        <p>Sorry, but {"that's"} game over</p>
+      )}
+      <p>Play again?</p>
+      <button onClick={handlePlayAgain}>Yes</button>
+    </>
   );
 };
 

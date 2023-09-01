@@ -1,5 +1,5 @@
 import City from './City';
-import GameResults from './GameResults';
+import MoveResult from './MoveResult';
 import History from './History';
 import { useSelector } from 'react-redux';
 import {
@@ -7,7 +7,7 @@ import {
   selectIsFirstCityReady,
 } from '../reducers/citiesSlice';
 import GuessCounter from './Guesses';
-import GameStatus from './GameStatus';
+import GameEndingModal from './GameEndingModal';
 
 const Game = () => {
   const isFirstCityReady = useSelector(selectIsFirstCityReady);
@@ -18,8 +18,8 @@ const Game = () => {
       <GuessCounter />
       <City cityId={1} />
       {isFirstCityReady && <City cityId={2} />}
-      {areBothCitiesReady && <GameResults />}
-      <GameStatus />
+      {areBothCitiesReady && <MoveResult />}
+      <GameEndingModal />
       <History />
     </main>
   );

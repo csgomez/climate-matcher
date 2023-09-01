@@ -1,11 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { showModal } from '../reducers/modalSlice';
+import { showSettingsModal } from '../reducers/modalSlice';
 
 const SettingsButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <button className="settings-button" onClick={() => dispatch(showModal())}>
+    <button
+      className="settings-button"
+      onClick={() => dispatch(showSettingsModal())}
+    >
       Settings
     </button>
   );

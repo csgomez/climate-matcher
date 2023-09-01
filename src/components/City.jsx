@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectCityDataById,
-  updateCityAndCheckReady,
-} from '../reducers/citiesSlice';
+import { selectCityDataById, makeGuess } from '../reducers/citiesSlice';
 import { useRef } from 'react';
 import { fetchLocation, fetchWeather } from '../services/geoweather';
 import CityResults from './CityResults';
@@ -32,7 +29,7 @@ const City = ({ cityId }) => {
         ready: true,
       };
 
-      dispatch(updateCityAndCheckReady({ cityId, newCityData }));
+      dispatch(makeGuess({ cityId, newCityData }));
 
       console.log(lat, lon, temperature);
     } catch (err) {
@@ -52,7 +49,12 @@ const City = ({ cityId }) => {
         />
         <button>Get Temp</button>
       </form>
-      <CityResults city={city} />
+
+      {city.ready && (
+        <div className="city-results">
+          <p>Temperature: {city.temp.toFixed(1)}F</p>
+        </div>
+      )}
     </div>
   );
 };

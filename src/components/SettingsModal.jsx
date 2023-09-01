@@ -1,17 +1,20 @@
 import Modal from 'react-modal';
 import Settings from './Settings';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideModal, selectIsModalOpen } from '../reducers/modalSlice';
+import {
+  hideSettingsModal,
+  selectIsSettingsModalOpen,
+} from '../reducers/modalSlice';
 
 Modal.setAppElement('#root');
 
 const SettingsModal = () => {
   const dispatch = useDispatch();
 
-  const isModalOpen = useSelector(selectIsModalOpen);
+  const isModalOpen = useSelector(selectIsSettingsModalOpen);
 
   const handleCloseModal = () => {
-    dispatch(hideModal());
+    dispatch(hideSettingsModal());
   };
 
   return (

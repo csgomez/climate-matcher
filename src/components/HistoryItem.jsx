@@ -7,8 +7,6 @@ const HistoryItem = ({ result }) => {
 
   const difference = result.difference;
 
-  console.log('History result: ', result);
-
   return (
     <tr>
       <td>{moveNumber}</td>

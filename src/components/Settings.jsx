@@ -4,7 +4,7 @@ import {
   updateDifficulty,
 } from '../reducers/citiesSlice';
 import { useState } from 'react';
-import { hideModal } from '../reducers/modalSlice';
+import { hideSettingsModal } from '../reducers/modalSlice';
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Settings = () => {
   };
 
   const handleCloseClick = () => {
-    dispatch(hideModal());
+    dispatch(hideSettingsModal());
   };
 
   return (

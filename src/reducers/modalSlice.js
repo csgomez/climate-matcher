@@ -1,24 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isOpen: false,
+  settings: {
+    isOpen: false,
+  },
+  gameEnding: {
+    isOpen: false,
+  },
 };
 
 const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    showModal: (state) => {
-      state.isOpen = true;
+    showSettingsModal: (state) => {
+      state.settings.isOpen = true;
     },
-    hideModal: (state) => {
-      state.isOpen = false;
+    hideSettingsModal: (state) => {
+      state.settings.isOpen = false;
+    },
+    showGameEndingModal: (state) => {
+      state.gameEnding.isOpen = true;
+    },
+    hideGameEndingModal: (state) => {
+      state.gameEnding.isOpen = false;
     },
   },
 });
 
-export const { showModal, hideModal } = modalSlice.actions;
+export const {
+  showSettingsModal,
+  hideSettingsModal,
+  showGameEndingModal,
+  hideGameEndingModal,
+} = modalSlice.actions;
 
-export const selectIsModalOpen = (state) => state.modal.isOpen;
+export const selectIsSettingsModalOpen = (state) => state.modal.settings.isOpen;
+export const selectIsGameEndingModalOpen = (state) =>
+  state.modal.gameEnding.isOpen;
 
 export default modalSlice.reducer;
