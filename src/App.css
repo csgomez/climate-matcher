@@ -81,9 +81,22 @@ header {
   width: 100%;
   border-bottom: 1px solid rgb(188, 188, 188);
   padding: 0.25rem 0;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
 }
 
 header h1 {
   margin: 0;
+  flex: 1;
   font-family: Oswald, Arial, Helvetica, sans-serif;
+}
+
+/* the SettingsButton */
+header button {
+  margin-right: 2rem;
+  position: absolute;
+  right: 0;
 }
