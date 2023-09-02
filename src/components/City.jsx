@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCityDataById, makeGuess } from '../reducers/citiesSlice';
 import { useRef } from 'react';
 import { fetchLocation, fetchWeather } from '../services/geoweather';
-import CityResults from './CityResults';
 
 const City = ({ cityId }) => {
   const city = useSelector(selectCityDataById(cityId));
