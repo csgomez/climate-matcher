@@ -8,6 +8,7 @@ import {
 } from '../reducers/citiesSlice';
 import GuessCounter from './Guesses';
 import GameEndingModal from './GameEndingModal';
+import GameInfo from './GameInfo';
 
 const Game = () => {
   const isFirstCityReady = useSelector(selectIsFirstCityReady);
@@ -15,7 +16,7 @@ const Game = () => {
 
   return (
     <main className="App">
-      <GuessCounter />
+      <GameInfo />
       <City cityId={1} />
       {isFirstCityReady && <City cityId={2} />}
       {areBothCitiesReady && <MoveResult />}

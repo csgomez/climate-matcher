@@ -38,9 +38,9 @@ const Settings = () => {
           value={selectedDifficulty}
           onChange={handleDifficultyChange}
         >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="easy">Easy 7°F</option>
+          <option value="medium">Medium 3°F</option>
+          <option value="hard">Hard 1°F</option>
         </select>
       </section>
     </div>
