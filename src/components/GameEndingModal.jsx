@@ -21,6 +21,8 @@ const GameEndingModal = () => {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: 'rgb(31 31 31)',
+          border: '4px solid #ffffff33',
+          borderRadius: '3px',
         },
         overlay: {
           backgroundColor: 'rgba(0, 0, 0, 0.808)',

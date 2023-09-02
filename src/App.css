@@ -146,3 +146,32 @@ option {
   margin-bottom: 0.5rem;
   font-size: 1.15rem;
 }
+
+.game-results-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.game-results-modal-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.game-results-modal-header h4 {
+  margin: 0;
+}
+
+.game-results-modal-header button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.game-results-modal-playagain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
