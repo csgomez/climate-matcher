@@ -37,7 +37,6 @@ export const citiesSlice = createSlice({
       const { cityId, newCityData } = action.payload;
       state[cityId].data = newCityData;
       state[cityId].ready = true;
-      console.log('UPDATED A CITY');
     },
     pushHistory: (state) => {
       const moveNumber = state.history.length + 1;
@@ -69,7 +68,6 @@ export const citiesSlice = createSlice({
 
       state.game.isWinner = isWinner;
       state.game.isFinished = isWinner || guessCount === 5;
-      console.log('UPDATED THE GAME STATE');
     },
     resetGame: () => {
       return initialState;
@@ -132,7 +130,6 @@ export const makeGuess = createAsyncThunk(
 
     // if the game is finished, show the game ending modal
     if (state.cities.game.isFinished) {
-      console.log('Game finished!');
       dispatch(showGameEndingModal());
     }
   }

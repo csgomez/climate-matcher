@@ -29,8 +29,6 @@ const City = ({ cityId }) => {
       };
 
       dispatch(makeGuess({ cityId, newCityData }));
-
-      console.log(lat, lon, temperature);
     } catch (err) {
       console.error('Error fetching location or weather: ', err);
     }
